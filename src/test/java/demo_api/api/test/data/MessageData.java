@@ -1,4 +1,4 @@
-package demo_api.model;
+package demo_api.api.test.data;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,6 +13,8 @@ import demo_api.api.process.model.Message;
 
 public class MessageData {
 
+	public static final String MESSAGES_JSON = "messages.json";
+
 	List<Message> messages;
 
 	@JsonCreator
@@ -21,12 +23,16 @@ public class MessageData {
 		this.messages = messages;
 	}
 
-	public static MessageData newInstance() {
+	public static MessageData newInstance(String fileName) {
 		try {
 			// create ObjectMapper instance
 			ObjectMapper objectMapper = new ObjectMapper();
 
-			MessageData messageData = createMessageData(objectMapper);
+			// read json file data to InputStream
+			InputStream jsonDataStream = MessageData.class.getClassLoader().getResourceAsStream(fileName);
+
+			// convert json string to object
+			MessageData messageData = objectMapper.readValue(jsonDataStream, MessageData.class);
 
 			System.out.println("Message Data Object\n" + messageData);
 			return messageData;
@@ -35,14 +41,6 @@ public class MessageData {
 			e.printStackTrace();
 			return null;
 		}
-	}
-
-	private static MessageData createMessageData(ObjectMapper objectMapper) throws IOException {
-		// read json file data to InputStream
-		InputStream jsonDataStream = MessageData.class.getClassLoader().getResourceAsStream("messages.json");
-
-		// convert json string to object
-		return objectMapper.readValue(jsonDataStream, MessageData.class);
 	}
 
 	public List<Message> getMessages() {
