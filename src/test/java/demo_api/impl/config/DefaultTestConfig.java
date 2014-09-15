@@ -7,8 +7,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import demo_api.api.config.Config;
 import demo_api.api.config.TestConfig;
-import demo_api.api.test.data.DefaultTestData;
 import demo_api.api.test.data.TestData;
+import demo_api.impl.test.data.DefaultTestData;
 
 @Configuration
 public class DefaultTestConfig extends DefaultConfig implements Config, TestConfig {
@@ -16,10 +16,9 @@ public class DefaultTestConfig extends DefaultConfig implements Config, TestConf
 	@Override
 	@Bean
 	public TestData getTestData() {
-		return DefaultTestData.getInstance();
+		return new DefaultTestData();
 	}
 
-	@Override
 	@Bean
 	public ObjectMapper getObjectMapper() {
 		return new ObjectMapper();
