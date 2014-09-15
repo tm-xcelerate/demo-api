@@ -1,5 +1,7 @@
 package demo_api.impl.process.model;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -25,5 +27,10 @@ public final class DefaultMessage implements Message {
 	@Override
 	public String getName() {
 		return this.name;
+	}
+
+	@Override
+	public String toString() {
+		return new ToStringBuilder(this).append("id", this.getId()).append("name", this.getName()).toString();
 	}
 }
