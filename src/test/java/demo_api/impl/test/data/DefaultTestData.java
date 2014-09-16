@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import demo_api.api.process.model.Message;
+import demo_api.api.model.Message;
 import demo_api.api.test.data.TestData;
 
 public class DefaultTestData implements TestData {

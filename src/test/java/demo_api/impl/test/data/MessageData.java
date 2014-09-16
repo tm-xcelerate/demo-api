@@ -13,7 +13,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import demo_api.api.process.model.Message;
+import demo_api.api.model.Message;
 
 public class MessageData {
 

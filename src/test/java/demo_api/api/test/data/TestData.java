@@ -2,7 +2,7 @@ package demo_api.api.test.data;
 
 import java.util.List;
 
-import demo_api.api.process.model.Message;
+import demo_api.api.model.Message;
 
 public interface TestData {
 

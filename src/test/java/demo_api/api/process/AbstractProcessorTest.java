@@ -3,23 +3,21 @@ package demo_api.api.process;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import demo_api.api.process.model.Message;
+import demo_api.api.model.Message;
 import demo_api.api.test.data.TestData;
 
 public abstract class AbstractProcessorTest implements ProcessorTest {
 
-	@Autowired
-	TestData testData;
+	abstract protected TestData getTestData();
 
-	@Autowired
-	Processor processor;
+	abstract protected Processor getProcessor();
 
+	@Override
 	@Test
 	public void testToUpper() {
-		for (Message message : this.testData.getMessages()) {
-			Message processedMessage = this.processor.toUpper(message);
+		for (Message message : this.getTestData().getMessages()) {
+			Message processedMessage = this.getProcessor().toUpper(message);
 			assertEquals("ID values not equal", message.getId(), processedMessage.getId());
 			assertEquals("Name values not equal", message.getName().toUpperCase(), processedMessage.getName());
 		}

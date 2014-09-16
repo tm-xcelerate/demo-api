@@ -1,8 +1,8 @@
 package demo_api.impl.process;
 
+import demo_api.api.model.Message;
 import demo_api.api.process.Processor;
-import demo_api.api.process.model.Message;
-import demo_api.impl.process.model.DefaultMessage;
+import demo_api.impl.model.DefaultMessage;
 
 public class DefaultProcessor implements Processor {
 

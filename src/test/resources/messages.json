@@ -1,7 +1,7 @@
 {
 	"messages": [
 		{
-			"@class": "demo_api.impl.process.model.DefaultMessage",
+			"@class": "demo_api.impl.model.DefaultMessage",
 			"id": "1",
 			"name": "Joe Smith"
 		}
